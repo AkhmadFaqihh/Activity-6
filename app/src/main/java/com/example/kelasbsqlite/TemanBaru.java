@@ -24,20 +24,20 @@ public class TemanBaru extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teman_baru);
 
-        tNama = (TextInputEditText)findViewById(R.id.tietNama);
-        tTelpon = (TextInputEditText)findViewById(R.id.tietTelpon);
-        simpanBtn = (Button)findViewById(R.id.buttonSave);
+        tNama = (TextInputEditText) findViewById(R.id.tietNama);
+        tTelpon = (TextInputEditText) findViewById(R.id.tietTelpon);
+        simpanBtn = (Button) findViewById(R.id.buttonSave);
 
         simpanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 if(tNama.getText().toString().equals("")||tTelpon.getText().toString().equals("")){
-                    Toast.makeText(getApplicationContext(), "Data belum komplit!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Data belum komplit !", Toast.LENGTH_SHORT).show();
                 }else{
                     nm = tNama.getText().toString();
                     tlp = tTelpon.getText().toString();
 
-                    HashMap<String,String> qvalues = new HashMap<>();
+                    HashMap<String,String>qvalues = new HashMap<>();
                     qvalues.put("nama",nm);
                     qvalues.put("telpon",tlp);
 
@@ -46,8 +46,8 @@ public class TemanBaru extends AppCompatActivity {
                 }
             }
         });
-    }
 
+    }
     public void callHome(){
         Intent intent = new Intent(TemanBaru.this,MainActivity.class);
         startActivity(intent);
